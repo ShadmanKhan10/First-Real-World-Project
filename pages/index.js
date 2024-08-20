@@ -26,6 +26,7 @@ import whiteUpSign from "../public/whiteUpSign.png";
 import playBtn from "../public/playBtn.png";
 import parse from "html-react-parser";
 import collage from "../public/collageImage.png";
+import mainBanner from "../public/paper.jpg";
 // import bgVideo from "../public/bgVideo.mp4";
 
 import transform4 from "../public/transform4.png";
@@ -484,7 +485,17 @@ export default function Home({ data }) {
             </div>
           </section>
         </div>
+
         <section className={styles.section3}>
+          <Image
+            src={mainBanner}
+            alt="mainBanner"
+            className={styles.mainBannerReal}
+          />
+          <div className={styles.bannerBtnMainContainer}>
+            <button className={styles.bannerBtnMain}>BOOK NOW</button>
+          </div>
+
           <div className={styles.bannerContent}>
             <div>
               {/* <div className={styles.mainLogoBannerContainer}>
@@ -494,9 +505,7 @@ export default function Home({ data }) {
                   className={styles.mainLogoBanner}
                 />
               </div> */}
-              <div>
-                <button className={styles.bannerBtnMain}>BOOK NOW</button>
-              </div>
+
               {/* <video
                 style={{ width: "100vw" }}
                 autoPlay={true}
@@ -536,6 +545,9 @@ export default function Home({ data }) {
             </div> */}
           </div>
         </section>
+        {/* <div className={styles.bannerBtnMainContainer}>
+          <button className={styles.bannerBtnMain}>BOOK NOW</button>
+        </div> */}
 
         <section id="about" data-aos="fade-up" className={styles.section4}>
           <div className={styles.section4ContentBox}>
