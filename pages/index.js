@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import "aos/dist/aos.css"; // Import the AOS CSS
 import AOS from "aos";
+
 import DOMPurify from "dompurify";
 import styles from "@/styles/home.module.css";
 import imagePng1 from "../public/personalityLogo.png";
@@ -51,6 +52,7 @@ import eventImage6 from "../public/eventImage6.png";
 import eventImage7 from "../public/eventImage7.png";
 import eventImage8 from "../public/eventImage8.png";
 import footerLogo from "../public/footerLogo.png";
+import logo2024 from "../public/transform2024.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -179,6 +181,8 @@ export default function Home({ data }) {
 
   const enquiryPartner =
     data.websiteContentObj.partnerData.enquireResult.enquirePartnerLink;
+
+  console.log(data.websiteContentObj); //For Referencing the websiteContentObj --> SHADMAN
 
   useEffect(() => {
     AOS.init({
@@ -483,7 +487,17 @@ export default function Home({ data }) {
         <section className={styles.section3}>
           <div className={styles.bannerContent}>
             <div>
-              <video
+              {/* <div className={styles.mainLogoBannerContainer}>
+                <Image
+                  src={logo2024}
+                  alt="main-logo"
+                  className={styles.mainLogoBanner}
+                />
+              </div> */}
+              <div>
+                <button className={styles.bannerBtnMain}>BOOK NOW</button>
+              </div>
+              {/* <video
                 style={{ width: "100vw" }}
                 autoPlay={true}
                 muted={true}
@@ -498,10 +512,17 @@ export default function Home({ data }) {
                   }
                   type="video/mp4"
                 />
-              </video>
+              </video> */}
+              {/* <Image
+                src={bannerImage}
+                alt="banner"
+                // width={1000}
+                // height={700}
+                className={styles.bannerImageMain}
+              /> */}
             </div>
 
-            <div className={styles.videoBtn}>
+            {/* <div className={styles.videoBtn}>
               <button>
                 <a
                   className={styles.anchorButton}
@@ -512,7 +533,7 @@ export default function Home({ data }) {
                   BOOK NOW
                 </a>
               </button>
-            </div>
+            </div> */}
           </div>
         </section>
 
@@ -566,19 +587,36 @@ export default function Home({ data }) {
                 <h3>{data.websiteContentObj.aboutData.videoHeading}</h3>
               </div>
               <div className={styles.videoImg}>
-                <Image
+                {/* <Image
                   src={serverUrl + "/website/about/" + aboutData.videoThumbnail}
                   alt="videoLogo"
                   width={700}
                   height={500}
                   className={styles.videoPicture}
-                />
+                  style={{ border: "2px solid black" }}
+                /> */}
+                <video
+                  autoPlay={true}
+                  muted={true}
+                  loop
+                  controls={false}
+                  className={styles.videoPicture}
+                >
+                  <source
+                    src={
+                      serverUrl +
+                      "/website/home/" +
+                      data.websiteContentObj.homeData.fileName
+                    }
+                    type="video/mp4"
+                  />
+                </video>
                 <a
                   href="https://www.youtube.com/watch?v=eKdz1oeSeqM"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className={styles.playBtn}>
+                  {/* <div className={styles.playBtn}>
                     <Image
                       src={playBtn.src}
                       alt="videoLogo"
@@ -586,7 +624,7 @@ export default function Home({ data }) {
                       height={50}
                       className={styles.plyBtn}
                     />
-                  </div>
+                  </div> */}
                 </a>
               </div>
 
@@ -606,7 +644,7 @@ export default function Home({ data }) {
           </div>
         </section>
 
-        <section data-aos="fade-up" className={styles.section5}>
+        {/* <section data-aos="fade-up" className={styles.section5}>
           <div className={styles.section5Content}>
             <div onClick={handleDivClick} className={styles.greenBanner}>
               <h3 data-aos="fade-right" className={styles.leftToRight}>
@@ -674,7 +712,7 @@ export default function Home({ data }) {
                   </p>
                 </div>
               )} */}
-            </div>
+        {/* </div>
             <div onClick={handleDivClick5} className={styles.greenBanner}>
               <h3 data-aos="fade-right" className={styles.leftToRight}>
                 {data.websiteContentObj.aboutData.text5}
@@ -689,7 +727,7 @@ export default function Home({ data }) {
               )}
             </div>
           </div>
-        </section>
+        </section> put closing bracket at end */}
         <section id="speakers" data-aos="fade-up" className={styles.section6}>
           <div className={styles.section6ContentBox}>
             <div className={styles.headingBox}>
@@ -971,6 +1009,55 @@ export default function Home({ data }) {
           </div>
         </section>
 
+        <section id="ticket" data-aos="fade-up" className={styles.section9}>
+          <div className={styles.section9ContentBox}>
+            <div className={styles.section7headingBox}>
+              <h2 className={styles.ticketHeading}>Tickets</h2>
+            </div>
+            <div className={styles.ticketConatiner}>
+              {ticketList.map((data, index) => (
+                <div key={index} className={styles.ticketCard1}>
+                  <div className={styles.ticketTitleContainer}>
+                    <h2>{data.heading}</h2>
+                    <p>{data.title}</p>
+                  </div>
+
+                  <div className={styles.listContainer}>
+                    <span
+                      dangerouslySetInnerHTML={{ __html: data.discription }}
+                    ></span>
+                  </div>
+                  <div className={styles.ticketButton}>
+                    <button>
+                      <a
+                        className={styles.anchorButton}
+                        href={bookNowUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        BOOK NOW
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Image
+              src="/transformBottomLogo.png"
+              width="500"
+              height="100"
+              className={styles.transFormMobile2}
+            />
+
+            {/* <Image
+              src={serverUrl + "/website/home/" + transFormMobile}
+              width="300"
+              height="100"
+              className={styles.transFormMobile2}
+            /> */}
+          </div>
+        </section>
+
         <section data-aos="fade-up" className={styles.section8}>
           <div className={styles.section8ContentBox}>
             <div className={styles.section8heading}>
@@ -1023,55 +1110,6 @@ export default function Home({ data }) {
                 />
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id="ticket" data-aos="fade-up" className={styles.section9}>
-          <div className={styles.section9ContentBox}>
-            <div className={styles.section7headingBox}>
-              <h2 className={styles.ticketHeading}>Tickets</h2>
-            </div>
-            <div className={styles.ticketConatiner}>
-              {ticketList.map((data, index) => (
-                <div key={index} className={styles.ticketCard1}>
-                  <div className={styles.ticketTitleContainer}>
-                    <h2>{data.heading}</h2>
-                    <p>{data.title}</p>
-                  </div>
-
-                  <div className={styles.listContainer}>
-                    <span
-                      dangerouslySetInnerHTML={{ __html: data.discription }}
-                    ></span>
-                  </div>
-                  <div className={styles.ticketButton}>
-                    <button>
-                      <a
-                        className={styles.anchorButton}
-                        href={bookNowUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        BOOK NOW
-                      </a>
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <Image
-              src="/transformBottomLogo.png"
-              width="500"
-              height="100"
-              className={styles.transFormMobile2}
-            />
-
-            {/* <Image
-              src={serverUrl + "/website/home/" + transFormMobile}
-              width="300"
-              height="100"
-              className={styles.transFormMobile2}
-            /> */}
           </div>
         </section>
 

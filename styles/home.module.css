@@ -168,6 +168,38 @@
   color: #fff;
 }
 
+.mainLogoBannerContainer {
+  /* border: 2px solid black; */
+  height: 65vh;
+  min-width: 50vw;
+}
+.mainLogoBanner {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.bannerBtnMain {
+  /* border: 2px solid black; */
+  background-color: #f26938;
+  color: white;
+  min-width: 10vw;
+  min-height: 10vh;
+  margin-top: 6vw;
+  margin-left: 20vw;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+  position: relative;
+  bottom: -15vw;
+  left: -9vw;
+}
+
 .section2 .actionContainer .rightButton:hover {
   background-color: #f26938;
   color: #ffff;
@@ -175,12 +207,17 @@
 
 .section3 {
   width: 100vw;
+  height: 100vh;
+  background-color: green;
   /* height: 47vw; */
+
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 0;
+  border: 2px solid black;
+  box-sizing: border-box;
 }
 .videoBtn {
   position: absolute;
@@ -216,6 +253,7 @@
 .section3 .bannerContent {
   position: relative;
   z-index: -1;
+  /* background-color: black; */
 }
 
 .section3 .bannerContent .bannerLogo {
@@ -1937,9 +1975,22 @@
     z-index: 2;
     cursor: pointer;
   }
-  .videoBtn > button {
+  .videoBtnContainer {
+    border: 2px solid black;
+    height: 10vw;
+    width: 20vw;
+  }
+  .bookNowMainBtn {
+    border: 2px solid green;
+  }
+  .anchorButtonMain {
+    color: brown;
+  }
+
+  /* .videoBtn > button {
     width: 30vw;
     background-color: #f26938;
+
     border-radius: 1.3vw;
     padding: 3vw;
     font-size: 3.6vw;
@@ -1949,7 +2000,13 @@
     color: #fff;
     transition: background-color 0.3s ease;
     border: none;
+  } */
+  .bannerImageMain {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
   }
+
   .section3 .bookNowBtn button {
     width: 30.5vw;
     background-color: #d1db25;
