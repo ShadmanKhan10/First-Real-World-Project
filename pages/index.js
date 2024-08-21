@@ -36,6 +36,7 @@ import { AiOutlineUp } from "react-icons/ai";
 
 import { BsArrowRight } from "react-icons/bs";
 import { BsArrowLeft } from "react-icons/bs";
+
 //
 import cardLogo1 from "../public/cardImage1.png";
 import cardLogo2 from "../public/cardImage2.png";
@@ -56,6 +57,9 @@ import footerLogo from "../public/footerLogo.png";
 import logo2024 from "../public/transform2024.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+import icon1 from "../public/icon1.jpeg";
+import icon2 from "../public/icon2.png";
 
 // const serverUrl = "https://transform-service.evma.in";
 
@@ -110,6 +114,8 @@ export default function Home({ data }) {
   const [showText5, setShowText5] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [openBox, setOpenBox] = useState(false);
+
+  const [videoClicked, setVideoClicked] = useState(false);
 
   const [viewGlancePopup, setViewPopUpGlance] = useState(false);
 
@@ -373,6 +379,38 @@ export default function Home({ data }) {
     setViewPopUpGlance(false);
   };
 
+  const partners = [
+    {
+      headingName: "Gold Partners",
+      iconSrcName: [
+        { src: "icon1.jpeg", width: "10vw" },
+        { src: "icon2.png", width: "8vw" },
+        { src: "icon1.jpeg", width: "5vw" },
+      ],
+    },
+    {
+      headingName: "Silver Partners",
+      iconSrcName: [
+        { src: "icon1.jpeg", width: "9vw" },
+        { src: "icon2.png", width: "7vw" },
+        { src: "icon1.jpeg", width: "5vw" },
+      ],
+    },
+    {
+      headingName: "Associate Partners",
+      iconSrcName: [
+        { src: "icon1.jpeg", width: "10vw" },
+        { src: "icon2.png", width: "8vw" },
+        { src: "icon1.jpeg", width: "6vw" },
+      ],
+    },
+  ];
+
+  const handleVideoClick = () => {
+    console.log("video clicked");
+    setVideoClicked(!videoClicked);
+  };
+
   return (
     <>
       <Head>
@@ -493,7 +531,10 @@ export default function Home({ data }) {
             className={styles.mainBannerReal}
           />
           <div className={styles.bannerBtnMainContainer}>
-            <button className={styles.bannerBtnMain}>BOOK NOW</button>
+            <a href={bookNowUrl} target="_blank" rel="noopener noreferrer">
+              {" "}
+              <button className={styles.bannerBtnMain}>BOOK NOW</button>
+            </a>
           </div>
 
           <div className={styles.bannerContent}>
@@ -607,22 +648,55 @@ export default function Home({ data }) {
                   className={styles.videoPicture}
                   style={{ border: "2px solid black" }}
                 /> */}
-                <video
-                  autoPlay={true}
-                  muted={true}
-                  loop
-                  controls={false}
-                  className={styles.videoPicture}
-                >
-                  <source
-                    src={
-                      serverUrl +
-                      "/website/home/" +
-                      data.websiteContentObj.homeData.fileName
-                    }
-                    type="video/mp4"
-                  />
-                </video>
+                {videoClicked ? (
+                  <div className={styles.bigVideoContainer}>
+                    <video
+                      autoPlay={true}
+                      muted={true}
+                      loop
+                      controls={true}
+                      style={{
+                        position: "relative",
+                        top: "0",
+                        left: "0",
+                        height: "100%",
+                        width: "100%",
+                        objectFit: "cover",
+                        cursor: "pointer",
+                      }}
+                      // className={styles.videoPicture}
+                      onClick={handleVideoClick}
+                    >
+                      <source
+                        src={
+                          serverUrl +
+                          "/website/home/" +
+                          data.websiteContentObj.homeData.fileName
+                        }
+                        type="video/mp4"
+                      />
+                    </video>
+                  </div>
+                ) : (
+                  <video
+                    autoPlay={true}
+                    muted={true}
+                    loop
+                    controls={false}
+                    className={styles.videoPicture}
+                    onClick={handleVideoClick}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <source
+                      src={
+                        serverUrl +
+                        "/website/home/" +
+                        data.websiteContentObj.homeData.fileName
+                      }
+                      type="video/mp4"
+                    />
+                  </video>
+                )}
                 <a
                   href="https://www.youtube.com/watch?v=eKdz1oeSeqM"
                   target="_blank"
@@ -1127,6 +1201,31 @@ export default function Home({ data }) {
 
         <section id="partners" data-aos="fade-up" className={styles.section10}>
           <h2>Partners</h2>
+          <div>
+            {partners.map((partner, index) => (
+              <div className={styles.titlePartnersList} key={index}>
+                <h2>{partner.headingName}</h2>
+                <div>
+                  {partner.iconSrcName.map((icon, iconIndex) => (
+                    <img
+                      key={iconIndex}
+                      src={icon.src}
+                      alt="partners"
+                      style={{
+                        width: icon.width,
+                        // border: "2px solid green",
+                        height: "5vw",
+                        objectFit: "contain",
+                        marginRight: "2vw",
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* <h2>Partners</h2>
           <div className={styles.sec10Header}>
             {" "}
             <h3>Gold partners</h3>
@@ -1435,7 +1534,7 @@ export default function Home({ data }) {
                 <a href={`mailto:${enquierEmail}`}> ENQUIRE TO PARTNER</a>
               </button>
             </div>
-          </div>
+          </div> */}
         </section>
         <section data-aos="fade-up" className={styles.section11}>
           <div className={styles.section11ContentBox}>
