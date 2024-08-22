@@ -263,6 +263,7 @@
   position: relative;
   top: 0;
   right: 53vw;
+  cursor: pointer;
 }
 
 .section3 .bannerContent {
@@ -724,6 +725,11 @@
   width: 100%;
 }
 @media only screen and (orientation: portrait) {
+  .bigVideoContainer {
+    height: 100%;
+    right: 6vw;
+    border: none;
+  }
   .bannerBtnMain {
     /* border: 2px solid black; */
     min-height: 6vh;
