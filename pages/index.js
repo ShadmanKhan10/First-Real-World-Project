@@ -589,58 +589,92 @@ export default function Home({ data }) {
         {/* <div className={styles.bannerBtnMainContainer}>
           <button className={styles.bannerBtnMain}>BOOK NOW</button>
         </div> */}
-
-        <section id="about" data-aos="fade-up" className={styles.section4}>
-          <div className={styles.section4ContentBox}>
-            <div className={styles.leftSection}>
-              <div className={styles.leftBox}>
-                <h2>{data.websiteContentObj.aboutData.heading}</h2>
-                <div
-                  className={styles.details}
-                  dangerouslySetInnerHTML={{ __html: discription }}
-                ></div>
-                <div className={styles.btnContainer}>
-                  <button>
-                    <a
-                      className={styles.anchorButton}
-                      href={bookNowUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      BOOK NOW
-                    </a>
-                  </button>
-                </div>
-                <div className={styles.taggline}>
-                  <p>
-                    {" "}
-                    TRANSFORM is brought to you by the Green Building Council of
-                    Australia
-                  </p>
-                </div>
-                <div className={styles.greenBuldingimage}>
-                  <a
-                    href="https://new.gbca.org.au/?utm_source=transform-website&utm_medium=referral&utm_campaign=transform"
-                    target="blank"
-                  >
-                    <Image
-                      // src={serverUrl + "/website/about/" +  aboutData.videoThumbnail}
-                      src="/green-building.png"
-                      alt="Green Building"
-                      width={243}
-                      height={51}
-                      className={styles.greenBuilding}
-                    />
-                  </a>
-                </div>
-              </div>
+        {videoClicked && (
+          <section>
+            <div
+              style={{
+                width: "100vw",
+                height: "100%",
+                aspectRatio: "16/9",
+                display: "block",
+                border: "2px solid black",
+                cursor: "pointer",
+              }}
+            >
+              <video
+                autoPlay={true}
+                muted={true}
+                loop
+                controls={true}
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                // className={styles.videoPicture}
+                onClick={handleVideoClick}
+              >
+                <source
+                  src={
+                    serverUrl +
+                    "/website/home/" +
+                    data.websiteContentObj.homeData.fileName
+                  }
+                  type="video/mp4"
+                />
+              </video>
             </div>
-            <div className={styles.rightSection}>
-              <div className={styles.header}>
-                <h3>{data.websiteContentObj.aboutData.videoHeading}</h3>
+          </section>
+        )}
+
+        {!videoClicked && (
+          <section id="about" data-aos="fade-up" className={styles.section4}>
+            <div className={styles.section4ContentBox}>
+              <div className={styles.leftSection}>
+                <div className={styles.leftBox}>
+                  <h2>{data.websiteContentObj.aboutData.heading}</h2>
+                  <div
+                    className={styles.details}
+                    dangerouslySetInnerHTML={{ __html: discription }}
+                  ></div>
+                  <div className={styles.btnContainer}>
+                    <button>
+                      <a
+                        className={styles.anchorButton}
+                        href={bookNowUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        BOOK NOW
+                      </a>
+                    </button>
+                  </div>
+                  <div className={styles.taggline}>
+                    <p>
+                      {" "}
+                      TRANSFORM is brought to you by the Green Building Council
+                      of Australia
+                    </p>
+                  </div>
+                  <div className={styles.greenBuldingimage}>
+                    <a
+                      href="https://new.gbca.org.au/?utm_source=transform-website&utm_medium=referral&utm_campaign=transform"
+                      target="blank"
+                    >
+                      <Image
+                        // src={serverUrl + "/website/about/" +  aboutData.videoThumbnail}
+                        src="/green-building.png"
+                        alt="Green Building"
+                        width={243}
+                        height={51}
+                        className={styles.greenBuilding}
+                      />
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className={styles.videoImg}>
-                {/* <Image
+              <div className={styles.rightSection}>
+                <div className={styles.header}>
+                  <h3>{data.websiteContentObj.aboutData.videoHeading}</h3>
+                </div>
+                <div className={styles.videoImg}>
+                  {/* <Image
                   src={serverUrl + "/website/about/" + aboutData.videoThumbnail}
                   alt="videoLogo"
                   width={700}
@@ -648,7 +682,7 @@ export default function Home({ data }) {
                   className={styles.videoPicture}
                   style={{ border: "2px solid black" }}
                 /> */}
-                {videoClicked ? (
+                  {/* {videoClicked ? (
                   <div className={styles.bigVideoContainer}>
                     <video
                       autoPlay={true}
@@ -674,7 +708,7 @@ export default function Home({ data }) {
                       />
                     </video>
                   </div>
-                ) : (
+                 ) : ( */}
                   <video
                     autoPlay={true}
                     muted={true}
@@ -693,13 +727,13 @@ export default function Home({ data }) {
                       type="video/mp4"
                     />
                   </video>
-                )}
-                <a
-                  href="https://www.youtube.com/watch?v=eKdz1oeSeqM"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {/* <div className={styles.playBtn}>
+                  {/* )} */}
+                  <a
+                    href="https://www.youtube.com/watch?v=eKdz1oeSeqM"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {/* <div className={styles.playBtn}>
                     <Image
                       src={playBtn.src}
                       alt="videoLogo"
@@ -708,24 +742,25 @@ export default function Home({ data }) {
                       className={styles.plyBtn}
                     />
                   </div> */}
-                </a>
-              </div>
-
-              <div className={styles.videoImg} onClick={videoPopUp}></div>
-              <div className={styles.section4Box}>
-                <p>
-                  <a
-                    href={data.websiteContentObj.aboutData.youTubeVideoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    See more highlights from previous TRANSFORM events
                   </a>
-                </p>
+                </div>
+
+                <div className={styles.videoImg} onClick={videoPopUp}></div>
+                <div className={styles.section4Box}>
+                  <p>
+                    <a
+                      href={data.websiteContentObj.aboutData.youTubeVideoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      See more highlights from previous TRANSFORM events
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* <section data-aos="fade-up" className={styles.section5}>
           <div className={styles.section5Content}>
