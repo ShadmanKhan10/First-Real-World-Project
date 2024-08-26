@@ -1658,6 +1658,8 @@
   width: 100vw;
   background-color: #ffff;
   border-radius: 1.5vw;
+  /* border: 2px solid black; */
+  padding-bottom: 5vw;
 
   box-sizing: border-box;
 

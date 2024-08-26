@@ -495,6 +495,9 @@ export default function Home({ data }) {
                     <a href="#ticket">TICKETS</a>
                   </li>
                   <li>
+                    <a href="#testimonials">TESTIMONIALS</a>
+                  </li>
+                  <li>
                     <a href="#partners">PARTNERS</a>
                   </li>
                   <li>
@@ -1618,7 +1621,7 @@ export default function Home({ data }) {
           </div>
         </section>
 
-        <section data-aos="fade-up" className={styles.section12}>
+        {/* <section data-aos="fade-up" className={styles.section12}>
           <h2>Gallery</h2>
           <div className={styles.section12Paratext}>
             <p>
@@ -1638,9 +1641,13 @@ export default function Home({ data }) {
             height={500}
             className={styles.eventImageContainer}
           />
-        </section>
+        </section> */}
 
-        <section id="contact" data-aos="fade-up" className={styles.section13}>
+        <section
+          id="testimonials"
+          data-aos="fade-up"
+          className={styles.section13}
+        >
           <div className={styles.section13ContentBox}>
             <h2>Testimonials</h2>
 
@@ -1661,6 +1668,27 @@ export default function Home({ data }) {
             </div>
 
             <hr className={styles.horizontalLine} />
+            <section data-aos="fade-up" className={styles.section12}>
+              <h2>Gallery</h2>
+              <div className={styles.section12Paratext}>
+                <p>
+                  <a
+                    href={data.websiteContentObj.galleryData.headingLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {data.websiteContentObj.galleryData.heading}
+                  </a>
+                </p>
+              </div>
+
+              <Image
+                src={serverUrl + "/website/gallery/" + galleryData}
+                width={1000}
+                height={500}
+                className={styles.eventImageContainer}
+              />
+            </section>
 
             <div className={styles.section13ContentContainer}>
               <a
