@@ -1136,13 +1136,9 @@
 
 .section8 {
   width: 100vw;
-
   border-radius: 1.5vw;
-
   box-sizing: border-box;
-
   padding: 3vw;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1152,7 +1148,6 @@
 .section8ContentBox {
   width: 95vw;
   background-color: #ced1d733;
-
   border-radius: 2vw;
   padding: 3vw 3vw 3vw;
   box-sizing: border-box;
@@ -1191,7 +1186,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   gap: 1.5vw;
   overflow-x: hidden;
   position: relative;
@@ -1217,14 +1211,21 @@
 .cardBox {
   background-color: #ced1d7;
   border-radius: 1.5vw;
-  min-width: 21vw;
-  height: 40vw;
+  /* min-width: 21vw; */
+  min-width: 13vw;
+  /* height: 40vw; */
+  height: 35vw;
   padding-bottom: 1vw;
+  /* border: 2px solid black; */
 }
+/* .cardBox::-webkit-scrollbar {
+  display: none;
+} */
 
 .section8imgBox {
   width: 100%;
-  height: auto;
+  /* height: auto; */
+  height: 40%;
   border-radius: 1.5vw;
   opacity: 0.5;
   cursor: pointer;
@@ -1263,13 +1264,17 @@
   font-weight: 500;
 }
 .section8InfoText {
-  width: 18vw;
-  font-size: 1.2vw;
+  /* width: 18vw; */
+  width: 100%;
+  /* height: 100%; */
+  font-size: 1vw;
   margin-top: 0.88vw;
   font-weight: 300;
   overflow-y: scroll;
-  height: 11.8vw;
+  /* overflow-x: scroll; */
+  height: 13vw;
   line-height: 1.6vw;
+  /* border: 2px solid black; */
 }
 .section8InfoText::-webkit-scrollbar {
   display: none;
@@ -2645,9 +2650,8 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-
     gap: 3vw;
-
+    overflow-x: scroll;
     position: relative;
     scroll-behavior: smooth;
     transition: scroll 0.1s ease-in-out;

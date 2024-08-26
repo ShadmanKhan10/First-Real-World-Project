@@ -27,6 +27,7 @@ import playBtn from "../public/playBtn.png";
 import parse from "html-react-parser";
 import collage from "../public/collageImage.png";
 import mainBanner from "../public/paper.jpg";
+import bannerReal from "../public/bannerReal.jpg";
 // import bgVideo from "../public/bgVideo.mp4";
 
 import transform4 from "../public/transform4.png";
@@ -526,7 +527,7 @@ export default function Home({ data }) {
 
         <section className={styles.section3}>
           <Image
-            src={mainBanner}
+            src={bannerReal}
             alt="mainBanner"
             className={styles.mainBannerReal}
           />
