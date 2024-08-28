@@ -59,6 +59,14 @@ import logo2024 from "../public/transform2024.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+import transformDay1 from "../public/transformDay1.jpg";
+import transformDay2 from "../public/transformDay2.jpg";
+import transformDay3 from "../public/transformDay3.jpg";
+import transformDay4 from "../public/transformDay4.jpg";
+import transformDay5 from "../public/transformDay5.jpg";
+import transformDay6 from "../public/transformDay6.jpg";
+import transformDay7 from "../public/transformDay7.jpg";
+
 import icon1 from "../public/icon1.jpeg";
 import icon2 from "../public/icon2.png";
 
@@ -411,6 +419,30 @@ export default function Home({ data }) {
     console.log("video clicked");
     setVideoClicked(!videoClicked);
   };
+
+  const gallryImagesSource = [
+    {
+      src: transformDay1,
+    },
+    {
+      src: transformDay2,
+    },
+    {
+      src: transformDay3,
+    },
+    {
+      src: transformDay4,
+    },
+    {
+      src: transformDay5,
+    },
+    {
+      src: transformDay6,
+    },
+    {
+      src: transformDay7,
+    },
+  ];
 
   return (
     <>
@@ -1682,12 +1714,19 @@ export default function Home({ data }) {
                 </p>
               </div>
 
-              <Image
+              {/* <Image
                 src={serverUrl + "/website/gallery/" + galleryData}
                 width={1000}
                 height={500}
                 className={styles.eventImageContainer}
-              />
+              /> */}
+              <div className={styles.gallaryImageContainer}>
+                {gallryImagesSource.map((image, index) => (
+                  <div key={index} className={styles.gallaryImageBox}>
+                    <Image src={image.src} className={styles.gallaryImageNew} />
+                  </div>
+                ))}
+              </div>
             </section>
 
             <div className={styles.section13ContentContainer}>
@@ -1695,6 +1734,7 @@ export default function Home({ data }) {
                 href="https://new.gbca.org.au/?utm_source=transform-website&utm_medium=referral&utm_campaign=transform"
                 target="blank"
               >
+                {" "}
                 <Image
                   src="/green-building.png"
                   alt="Green Building"

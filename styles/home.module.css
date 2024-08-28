@@ -1890,6 +1890,33 @@
   align-items: center;
 }
 
+.gallaryImageContainer {
+  /* border: 2px solid red; */
+  width: 100vw;
+  /* height: 100vw; */
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5vw;
+  padding: 2vw;
+}
+.gallaryImageBox {
+  position: relative;
+  width: 30vw;
+  height: 30vw;
+  aspect-ratio: 3/2;
+}
+
+.gallaryImageNew {
+  /* border: 2px solid black; */
+  max-width: 100%;
+  max-height: 100%;
+  /* object-fit: contain; */
+  object-fit: cover;
+}
+
 .section10ImageContainer6 {
   width: 70vw;
   display: flex;
