@@ -3,6 +3,8 @@ import Image from "next/image";
 import "aos/dist/aos.css"; // Import the AOS CSS
 import AOS from "aos";
 
+// import AboutVideo from "../public/AboutVideo.mp4";
+
 import DOMPurify from "dompurify";
 import styles from "@/styles/home.module.css";
 import imagePng1 from "../public/personalityLogo.png";
@@ -527,11 +529,15 @@ export default function Home({ data }) {
                     <a href="#ticket">TICKETS</a>
                   </li>
                   <li>
-                    <a href="#testimonials">TESTIMONIALS</a>
-                  </li>
-                  <li>
                     <a href="#partners">PARTNERS</a>
                   </li>
+                  <li>
+                    <a href="#innovation">INNOVATION FORUM</a>
+                  </li>
+                  <li>
+                    <a href="#testimonials">TESTIMONIALS</a>
+                  </li>
+
                   <li>
                     <a
                       href={`mailto:${emailId}`}
@@ -653,6 +659,7 @@ export default function Home({ data }) {
                     data.websiteContentObj.homeData.fileName
                   }
                   type="video/mp4"
+                  // src={AboutVideo}
                 />
               </video>
             </div>
@@ -677,7 +684,7 @@ export default function Home({ data }) {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        BOOK NOW
+                        BOOK INTO TRANSFORM
                       </a>
                     </button>
                   </div>
@@ -761,6 +768,7 @@ export default function Home({ data }) {
                         data.websiteContentObj.homeData.fileName
                       }
                       type="video/mp4"
+                      // src={AboutVideo}
                     />
                   </video>
                   {/* )} */}
@@ -1674,6 +1682,43 @@ export default function Home({ data }) {
             className={styles.eventImageContainer}
           />
         </section> */}
+
+        <section id="innovation" className={styles.innovationForum}>
+          <div className={styles.innovationForumHeadingContainer}>
+            <h2 className={styles.innovationForumHeading}>Innovation Forum</h2>
+          </div>
+
+          <div style={{ margin: "0vw 6vw" }}>
+            <h2 className={styles.innovationForumSubHeading}>
+              Innovation Forum | 18th March, 2025 | Sydney - Innovation Forum
+            </h2>
+          </div>
+          <div className={styles.innovationForumContent}>
+            <p
+              style={{
+                fontSize: "1.2vw",
+              }}
+            >
+              We know innovation is the key to meeting our sustainability goals.
+              From AI to data and automation – what will be the next big leavers
+              of change? Join us to hear leading examples of technology and
+              innovation having an impact in the sustainable built environment.
+            </p>
+            <p
+              style={{
+                fontStyle: "italic",
+                paddingTop: "1vw",
+                fontSize: "1.2vw",
+              }}
+            >
+              Book your ticket separately or bundle with your TRANSFORM ticket
+              to receive a discount{" "}
+            </p>
+            <button className={styles.innovationForumBtn}>
+              BOOK INTO INNOVATION FORUM
+            </button>
+          </div>
+        </section>
 
         <section
           id="testimonials"
